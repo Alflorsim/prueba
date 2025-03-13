@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav style="display: flex; justify-content: space-betweeen; align-items:center; width: 100%; border: 1px solid black;">
+    <div style="width: 85%; margin-left: 20px;">
+        <h1><a href="{{url_for('logout')}}">Inicio</a></h1>
+    </div>
+</nav>
+<h1 style="display: flex; justify-content: center; align-items:center; width: 100%;">WELCOME TO Contactos</h1>
+
+
+<form action="/addcontact" method="POST">
+    <div>
+        {{form.nombre.label}}
+        {{form.nombre(placeholder='Escribe tu nombre')}}
+    </div>
+    <div>
+        {{form.telefono.label}}
+        {{form.telefono(placeholder='Escribe tu telefono')}}
+    </div>
+    <div>
+        {{form.descripcion.label}}
+        {{form.descripcion(placeholder='Escribe tu descripcion')}}
+    </div>
+    <div>
+        {{form.submit(placeholder='Crear usuario')}}
+    </div>
+    
+</form>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Descripcion</td>
+        </tr>
+    </thead>
+{% for contact in data %}
+    <tbody>
+        <td>{{contact.2}}</td>
+        <td>{{contact.3}}</td>
+        <td>{{contact.4}}</td>
+        <td>
+            <a href="/edit/{{contact.0}}">Edit</a>
+        </td>
+        <td>
+            <a href="/delete/{{contact.0}}">Delete</a>
+        </td>
+    </tbody>
+
+{% endfor %}
+</table>
+{% endblock %}

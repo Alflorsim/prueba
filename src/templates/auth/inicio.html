@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav style="display: flex; justify-content: space-betweeen; align-items:center; width: 100%; border: 1px solid black;">
+    <div style="width: 85%; margin-left: 20px;">
+        <h1><a href="{{url_for('inicio')}}">Inicio</a></h1>
+    </div>
+    <div style=" display: flex; margin-right: 20px;">
+        <h1><a href="{{url_for('login')}}">Login</a></h1>
+    </div>
+    <div>
+        <h1><a href="{{url_for('register')}}">Register</a></h1>
+    </div>
+</nav>
+<h1 style="display: flex; justify-content: center; align-items:center; width: 100%;">WELCOME TO INICIO</h1>
+
+
+
+
+{% endblock %}
